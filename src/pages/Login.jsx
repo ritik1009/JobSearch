@@ -23,7 +23,7 @@ const Login = () => {
         passwordRef.current.value,
         dispatch
       );
-      console.log(LoginError);
+      // console.log(LoginError);
       if (res) {
         throw new Error("Your Credentials is not correct");
       } else {

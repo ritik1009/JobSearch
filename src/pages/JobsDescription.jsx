@@ -22,11 +22,11 @@ const JobsDescription = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // You can perform actions with the form data here, like sending it to a server.
-    console.log(formData);
+    // console.log(formData);
     setSubmitted(true);
   };
   const data = useSelector((state) => state.user.job);
-  console.log("The data",data)
+  // console.log("The data",data)
   return (
     <>
       <div

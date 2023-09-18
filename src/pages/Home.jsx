@@ -30,7 +30,7 @@ const Home = () => {
     dispatch(updateTotalJob({data:res.data.results,search:nameRef.current.value}))
   }
   const detailPage = (idx)=>{
-    console.log("The Selected Job",job[idx])
+    // console.log("The Selected Job",job[idx])
     dispatch(updateJob({data:job[idx]}))
     navigate("/job_description");
   }

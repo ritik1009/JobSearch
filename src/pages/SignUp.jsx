@@ -34,7 +34,7 @@ const SingUp = () => {
         passwordRef.current.value,
         dispatch
       );
-      console.log("User - ", res._delegate.uid);
+      // console.log("User - ", res._delegate.uid);
       if (typeof res === "boolean") {
         throw new Error("Your Credentials is not correct");
       } else {
