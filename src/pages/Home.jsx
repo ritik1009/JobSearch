@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const data = useSelector((state) => state.user.jobSearchResult);
   const pastsearch = useSelector((state) => state.user.search);
+  const [loading, setLoading] = useState(false);
   const [job,setjob] = useState()
   const nameRef = useRef();
   const app_id = import.meta.env.VITE_jobApiId;
@@ -20,9 +21,11 @@ const Home = () => {
     }
   },[])
   const handleSubmit = async ()=>{
+    setLoading(true)
     const res = await axios.get(
       `http://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${app_id}&app_key=${app_key}&results_per_page=20&what=${nameRef.current.value}&content-type=application/json`
     );
+    setLoading(false)
     setjob(res.data.results)
     dispatch(updateTotalJob({data:res.data.results,search:nameRef.current.value}))
   }
@@ -62,7 +65,7 @@ const Home = () => {
               </div>
             );
         })}</div>
-      ) : (
+      ) : (loading?<div className="bg-gray-100 p-7 rounded-lg text-black">Loading...</div>:
         <div className="bg-gray-100 p-7 rounded-lg text-black">0</div>
       )}
     </div>
