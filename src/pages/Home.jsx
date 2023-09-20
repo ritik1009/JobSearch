@@ -23,7 +23,7 @@ const Home = () => {
   const handleSubmit = async ()=>{
     setLoading(true)
     const res = await axios.get(
-      `http://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${app_id}&app_key=${app_key}&results_per_page=20&what=${nameRef.current.value}&content-type=application/json`
+      `//api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${app_id}&app_key=${app_key}&results_per_page=20&what=${nameRef.current.value}&content-type=application/json`
     );
     setLoading(false)
     setjob(res.data.results)
